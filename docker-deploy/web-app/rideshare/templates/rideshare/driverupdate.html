@@ -1,0 +1,11 @@
+{% extends "rideshare/basic_user.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>User: {{ driver.name }}</h1>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+
+{% endblock %}

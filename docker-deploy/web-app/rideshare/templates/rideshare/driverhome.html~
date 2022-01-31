@@ -1,0 +1,9 @@
+<h1>Driver Home</h1>
+
+<ul>
+  <li><a href="{% url 'rideshare:driver-detail' driver.id %}">View Driver Information</a></li>
+  <li><a href="{% url 'rideshare:searchride'%}">Search for a ride to drive</a></li>
+  <li><a href="{% url 'rideshare:driverhistory'%}">View driver history</a></li>
+</ul>
+
+<a href="{% url 'rideshare:logout'%}">Log out</a>

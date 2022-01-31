@@ -1,0 +1,15 @@
+{% extends "rideshare/basic_user.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<p><strong>Destination:</strong> {{form.instance.destination }}</p>
+<!-- <p><strong>Passenger:</strong> {{ form.number_passenger }}</p> -->
+
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <p>Are you sure you want to change the passenger number?</p>
+  <button class="btn btn-outline-primary" href="{% url 'rideshare:sharer-list' %}" type="submit">Submit</button>
+  <a class="btn btn-outline-secondary" href="{% url 'rideshare:sharehome' %}">return to Home</a>
+</form>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'rideshare/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<h1 class="mt-2">Ride History</h1>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>destination</th>
+        <th>Arrive Date and Time</th>
+        <th>Passenger Number</th>
+        <th>Share Ride</th>
+        <th>Ride Status</th>
+        <!-- <th>Owner</th>
+        <th>Sharer</th>
+        <th>Driver</th> -->
+        
+    </tr>
+    {% for ride in rides %}
+    <tr>
+        <td>{{ ride.request_id }}</td>
+        <td>{{ ride.destination }}</td>
+        <td>{{ ride.arrive_date }}</td>
+        <td>{{ ride.number_passenger }}</td>
+        <td>{{ ride.get_share_display }}</td>
+        <td>{{ ride.get_status_display }}</td>
+        <!-- <td>{{ ride.owner }}</td>
+        <td>{{ ride.sharer}}</td>
+        <td>{{ ride.driver}}</td> -->
+    
+        
+        <td>
+            <a class="nav-item nav-link" href="{% url 'rideshare:ride-detail' ride.request_id%}">Show Details</a>
+            
+        </td>
+    </tr>
+     {% endfor %}
+    </table>
+{% endblock content %}

@@ -1,0 +1,8 @@
+<h1>WELCOME</h1>
+
+<ul>
+  <li><a href="{% url 'rideshare:registerdriver'%}">Register as a Driver</a></li>
+  <li><a href="{% url 'rideshare:requestride'%}">Request a ride</a></li>
+  <li><a href="{% url 'rideshare:shareride'%}">Request to share a ride</a></li>
+  <li><a href="{% url 'rideshare:ridestatus'%}">Check ride status</a></li>
+</ul>

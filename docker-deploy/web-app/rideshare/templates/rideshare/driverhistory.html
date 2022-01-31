@@ -1,0 +1,35 @@
+{% extends "rideshare/basic_user.html" %}
+{% load static %}
+{% block content %}
+
+<body>
+    
+    <legend class="border-bottom mb-4">Ride History</legend>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>destination</th>
+        <th>Arrive Date and Time</th>
+        <th>Passenger Number</th>
+        <th>Share Ride</th>
+        <th>Ride Status</th>
+        
+    </tr>
+    {% for ride in rides %}
+    <tr>
+        <td>{{ ride.request_id }}</td>
+        <td>{{ ride.destination }}</td>
+        <td>{{ ride.arrive_date }}</td>
+        <td>{{ ride.number_passenger }}</td>
+        <td>{{ ride.get_share_display }}</td>
+        <td>{{ ride.get_status_display }}</td>
+        <td>
+            <a class="nav-item nav-link" href="{% url 'rideshare:completeride' ride.request_id%}">View/Complete Ride</a>
+            
+        </td>
+    </tr>
+     {% endfor %}
+    </table>
+</body>
+
+{% endblock %}

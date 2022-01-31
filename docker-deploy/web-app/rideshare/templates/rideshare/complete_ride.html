@@ -1,0 +1,18 @@
+{% extends "rideshare/basic_user.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<p><strong>Destination:</strong> {{ object.destination }}</p>
+<p><strong>Requested Arrival:</strong> <a class="datetime">{{object.arrive_date}}</a></p>
+<p><strong>Passenger:</strong> {{ object.number_passenger }}</p>
+<p><strong>Vehicle Choice:</strong> {{ object.get_vehicle_type_display }}</p>
+<p><strong>Special Request:</strong> {{ object.special_request }}</p>
+{% if object.get_status_display != 'Closed' %}
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <p>Are you sure you want to complete this ride?</p>
+  <button class="btn btn-outline-primary" type="submit">Yes, complete!</button>
+  <a class="btn btn-outline-secondary" href="{% url 'rideshare:driverhistory' %}">No, return to driver history</a>
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "rideshare/basic_user.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<p><strong>Destination:</strong> {{ ride.destination }}</p>
+<p><strong>Requested Arrival:</strong> {{ ride.arrival_date }}</p>
+<p><strong>Passenger:</strong> {{ ride.number_passenger }}</p>
+<p><strong>Vehicle Requirement:</strong> {{ ride.vehicle_type }}</p>
+<p><strong>Special Request:</strong> {{ ride.special_request }}</p>
+
+<form method="post">{% csrf_token %}
+  <p>Are you sure you want to accept the ride request?</p>
+  <button class="btn btn-outline-primary" type="submit">Yes, accept!</button>
+  <a class="btn btn-outline-secondary" href="{% url 'rideshare:riderequests' %}">No, return to all open ride requests</a>
+</form>
+
+{% endblock %}

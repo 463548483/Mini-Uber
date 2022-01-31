@@ -1,0 +1,11 @@
+{% extends "base_user.html" %}
+
+{% block content %}
+  <h1>User: {{ driver.name }}</h1>
+
+  <p><strong>Vehicle:</strong> {{ driver.vehicle_type }}</p>
+  <p><strong>License No.:</strong> {{ driver.license_number }}</p>
+  <p><strong>Vehivle Capacity::</strong> {{ driver.capacity }}</p>
+  <p><strong>Special Vehicle Info:</strong> {{ driver.special_vehicle_info }}</p>
+
+{ % endblock % }

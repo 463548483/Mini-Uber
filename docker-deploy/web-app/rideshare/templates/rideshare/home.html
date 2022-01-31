@@ -1,0 +1,18 @@
+{% extends "rideshare/basic_user.html" %}
+
+{% block content %}
+
+<h1>Home for Logged-In User: {{current_user}}</h1>
+
+<ul>
+  {% if hasDriverAccount == True %}
+  <li><a href="{% url 'rideshare:driverhome'%}">Go to Driver's Page</a></li>
+  {% else %}
+  <li><a href="{% url 'rideshare:registerdriver'%}">Register as a Driver</a></li>
+  {% endif %}
+  <li><a href="{% url 'rideshare:ridehome'%}">Request a ride/ View ongoing rides</a></li>
+  <li><a href="{% url 'rideshare:sharehome'%}">Request to share a ride</a></li>
+  <li><a href="{% url 'rideshare:ridehistory'%}">View ride history</a></li>
+</ul>
+
+{% endblock %}

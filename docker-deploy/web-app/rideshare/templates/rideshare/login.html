@@ -1,0 +1,26 @@
+{% extends "rideshare/header.html" %}
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+<!--Login-->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="container py-5">
+  <h1>Login</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+  <p class="text-center">Don't have an account? <a href="{% url 'rideshare:register' %}">Create an account</a>.</p>
+</div>
+
+{% endblock %}

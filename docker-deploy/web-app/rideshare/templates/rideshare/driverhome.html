@@ -1,0 +1,11 @@
+{% extends "rideshare/basic_user.html" %}
+
+{% block content %}
+<h1>Driver Home: {{driver.name}}</h1>
+<ul>
+  <li><a href="{% url 'rideshare:driver-detail' driver.id %}">View Driver Information</a></li>
+  <li><a href="{% url 'rideshare:riderequests'%}">Search for open ride request</a></li>
+  <li><a href="{% url 'rideshare:driverhistory'%}">View driver history</a></li>
+</ul>
+
+{% endblock %}

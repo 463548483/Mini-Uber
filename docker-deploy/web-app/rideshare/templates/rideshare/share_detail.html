@@ -1,0 +1,192 @@
+{% extends 'rideshare/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method="post" id="ride" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="pBlnvu5irVOcfN5wkPtugVOTtwgBIQxo8DIMj15010BDlZrbO4aBv31GN7xJ4hYq">
+        <div>
+        
+        
+        
+        
+        
+        
+        
+          <fieldset class="module aligned ">
+            
+            
+            
+                <div class="form-row field-destination">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_destination">Destination:</label>
+                                
+                                    {{ride.destination}}
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-arrive_date">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_arrive_date_0">Request Arrival Date and Time:</label>
+                                
+                                    <p class="datetime">{{ride.arrive_date}}</p>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-number_passenger">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_number_passenger">Passenger Number:</label>
+                                
+                                {{ride.number_passenger}}
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-share">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_share">Share Ride:</label>
+                                
+                                   
+          {{ride.share}}
+        
+        </select>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-status">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_status">Status:</label>
+                                
+                                        {{ride.get_status_display}}
+        
+        </select>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-vehicle_type">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_vehicle_type">Vehicle Requirement:</label>
+                                
+                                    {{ride.get_vehicle_type_display}}
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-special_request">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_special_request">Special Request:</label>
+                                
+                                    {{ride.special_request}}
+                            
+                        </div>
+                    
+                </div>
+            
+        
+            
+ 
+            
+                <div class="form-row field-driver">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label for="id_driver">Driver:</label>
+                                
+                                    {{ridedriver}}
+        </div>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+        </fieldset>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {% if ride.get_status_display == 'Open' %}
+        <a class="nav-item nav-link" href="{% url 'rideshare:sharer-update' share.pk%}">Update Passenger Number</a>
+        <a class="nav-item nav-link" href="{% url 'rideshare:sharer-cancel' share.pk%}">Cancel Join</a>
+        <a class="nav-item nav-link" href="{% url 'rideshare:sharehome' %}">Return to List</a>
+        {% endif %}
+        
+        
+        
+        
+            <script id="django-admin-form-add-constants"
+                    src="/static/admin/js/change_form.js"
+                    
+                    async>
+            </script>
+        
+        
+        
+        
+        <script id="django-admin-prepopulated-fields-constants"
+                src="/static/admin/js/prepopulate_init.js"
+                data-prepopulated-fields="[]">
+        </script>
+        
+        
+        </div>
+        </form></div>
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "rideshare/basic_user.html" %}
+
+{% block content %}
+<h1>User: {{ driver.name }}</h1>
+
+<p><strong>Vehicle:</strong> {{ driver.get_vehicle_type_display }}</p>
+<p><strong>License No.:</strong> {{ driver.license_number }}</p>
+<p><strong>Vehicle Capacity:</strong> {{ driver.capacity }}</p>
+<p><strong>Special Vehicle Info:</strong> {{ driver.special_vehicle_info }}</p>
+
+<a class="nav-item nav-link" href="{% url 'rideshare:driver-update' driver.id%}">Update Information</a>
+<a class="nav-item nav-link" href="{% url 'rideshare:driver-delete' driver.id%}">Delete Driver Profile</a>
+
+{% endblock %}
