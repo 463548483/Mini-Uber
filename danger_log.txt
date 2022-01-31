@@ -1,0 +1,23 @@
+Danger/Vulnaribilities:
+1. Even if the user is not the "owner" or "sharer" of a particular ride, she can see the details about the ride if she knows the ride number, just by going to the url '/ride/#'. However, if the ride is open/confirmed, the detail page will show "Update" and "Delete" options to that malicious user which won't let the user update/delete as she is not the "owner" of the ride. Similar situation happens for the ride share detail page.
+   Possible Solution: We can avoid this situation by adding a layer of test before showing the detail pages to the user to verify if the user is the owner/sharer of that particular ride. We have this test for the update and delete pages, but we couldn't implement the same functionality for these pages due to time constarints. However, we think having the test for update/delete pages is more important which we already have.
+
+2. When a ride sharer joins a ride, it takes her to a share detail page, which is only accessible by her (the sharer). However, if she refreshes the page in the browser, she will join the ride multiple times increasing the total number of passengers.
+   Possible Solution: Preventing the "join" form to get submitted on every update of the page. We can add another condition as a prerequisite for the form submission.
+
+3.
+
+Specifications Developers Decided on:
+
+Ride Owner:
+     1. Ride owner cannot update the "share" status after creating the ride, even if the ride is open.
+     2. When the ride owner deletes/cancels a ride when the sharer has already joined, the system will send email to both owner and sharer notifying them that the ride has been canceled.
+     3. The maximum number of passengers a ride owner can add while creating ride request is 4. The reason we chose 5 is because the maximum capacity of the availavle vehicle types is 5.
+     4. Ride owner cannot change the ride details when a sharer has already joined the ride, even if the ride is still open.
+
+Ride Sharer:
+     1. The maximum number of passengers a ride sharer can add while creating share-ride request is 4. The reason we chose 5 is because the maximum capacity of the availavle vehicle types is 5. And assuming that the ride owner is just riding by herself, there can be room for 4 more people maximum.
+     2. If the number of passengers requested in share-ride request is larger than (vehicle capacity - current number_passenger by ride owner) for any open rides, those rides won't be shown to the sharer, as they don't have enough room.
+
+Driver:
+        1. The maximum capacity of the driver's vehicle is 5. At this point, we are not allowing any vehicle with larger capacity for our RideShare app.
