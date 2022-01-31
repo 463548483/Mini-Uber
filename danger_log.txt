@@ -5,8 +5,6 @@ Danger/Vulnaribilities:
 2. When a ride sharer joins a ride, it takes her to a share detail page, which is only accessible by her (the sharer). However, if she refreshes the page in the browser, she will join the ride multiple times increasing the total number of passengers.
    Possible Solution: Preventing the "join" form to get submitted on every update of the page. We can add another condition as a prerequisite for the form submission.
 
-3.
-
 Specifications Developers Decided on:
 
 Ride Owner:
