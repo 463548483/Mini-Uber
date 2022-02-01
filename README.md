@@ -1,9 +1,9 @@
 # Mini-Uber
 
 This project is a web-app designed to provide Ride-Share Service, which let users
-===============
 request, drive for, and join rides.
-========================================
+
+==============
 
 # Ride Owner 
 – When a user requests a ride, he/she becomes the owner of that ride. Requesting
