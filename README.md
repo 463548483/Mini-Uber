@@ -1,9 +1,11 @@
 # Mini-Uber
 
 This project is a web-app designed to provide Ride-Share Service, which let users
+===============
 request, drive for, and join rides.
+========================================
 
-#Ride Owner 
+# Ride Owner 
 – When a user requests a ride, he/she becomes the owner of that ride. Requesting
 a ride should involve specifying a destination address, a required arrival (date & time), the
 number of total passengers from the owner’s party, and optionally, a vehicle type and any
@@ -14,7 +16,7 @@ and is in route). A ride is open from the time it is requested until that point.
 also view ride status until the ride is complete (a ride becomes closed once a driver finishes the
 ride and marks it as complete).
 
-#Ride Driver 
+# Ride Driver 
 – A user can register as a driver, and in doing so will provide their name along with
 their vehicle information. The vehicle information includes the type, license plate number,
 maximum number of passengers, and optionally any other special vehicle info1. To simplify, a
@@ -23,7 +25,7 @@ request attributes. A driver can claim and start a ride service, thus confirming
 also complete rides that they service after reaching the destination to indicate that the ride is
 finished.
 
-#Ride Sharer 
+# Ride Sharer 
 – A user can search for open ride requests by specifying a destination, arrival
 window (the user’s earliest and latest acceptable arrival date & time) and number of
 passengers in their party. The user can then become a ride sharer, by joining that ride. A ride
